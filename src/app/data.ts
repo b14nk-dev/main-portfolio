@@ -152,7 +152,7 @@ export const DATA = {
     },
     "Ascii art generator": {
       SLUG: "ascii-art",
-      LIVE_PREVIEW: "https://ascii-art-three.vercel.app/",
+      LIVE_PREVIEW: "https://ascii-art-generator-nextjs.vercel.app/",
       GITHUB: "https://github.com/ritikNegi2022/ascii-art",
       DATE: "February 25, 2024",
       DESCRIPTION: [
