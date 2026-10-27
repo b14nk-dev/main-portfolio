@@ -64,7 +64,7 @@ education, with the current resume available as a PDF download.
 1. Clone the repository:
 
    ```sh
-   git clone https://github.com/ritikNegi2022/main-portfolio.git
+   git clone https://github.com/b14nk-dev/main-portfolio.git
    cd main-portfolio
    ```
 

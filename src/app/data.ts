@@ -32,7 +32,7 @@ export const DATA = {
     RESUME: "/Resume.pdf",
     EMAIL: "negiritik01@gmail.com",
     PHONE: "+91 88001 60543",
-    GITHUB: "https://github.com/ritikNegi2022",
+    GITHUB: "https://github.com/b14nk-dev",
     LINKEDIN: "https://www.linkedin.com/in/ritik-negi-39a1a32b8/",
   },
 
@@ -198,7 +198,7 @@ export const DATA = {
       DATE: "2023",
       CATEGORY: "personal",
       LIVE_PREVIEW: "https://terminal-blank.vercel.app",
-      GITHUB: "https://github.com/ritikNegi2022/Terminal-Portofolio",
+      GITHUB: "https://github.com/b14nk-dev/Terminal-Portofolio",
       DESCRIPTION: [
         "A portfolio that looks and functions like a terminal — visitors explore the work by typing commands.",
         "Clean, text-first interface with a command parser and keyboard-driven navigation.",
@@ -211,7 +211,7 @@ export const DATA = {
       DATE: "2025",
       CATEGORY: "personal",
       LIVE_PREVIEW: "https://ascii-art-generator-nextjs.vercel.app/",
-      GITHUB: "https://github.com/ritikNegi2022/ascii-art",
+      GITHUB: "https://github.com/b14nk-dev/ascii-art",
       DESCRIPTION: [
         "Converts uploaded images into ASCII art with adjustable settings and live preview.",
         "Export the result as an image or text file from a responsive, client-side UI.",
@@ -221,7 +221,7 @@ export const DATA = {
     },
   },
 
-  ALL_PROJECTS: "https://github.com/ritikNegi2022?tab=repositories",
+  ALL_PROJECTS: "https://github.com/b14nk-dev?tab=repositories",
 
   SKILLS: {
     Languages: ["TypeScript", "JavaScript", "SQL", "HTML", "CSS"],
