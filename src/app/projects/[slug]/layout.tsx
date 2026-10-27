@@ -16,25 +16,27 @@ export async function generateMetadata({
 
   if (!project) {
     return {
-      title: "Project Not Found",
+      title: "Project Not Found | Ritik Negi",
       description: "The requested project does not exist.",
     };
   }
 
   return {
-    title: `${project[0]} | Utkarsh Singhal`,
+    title: `${project[0]} | Ritik Negi`,
     description: project[1].DESCRIPTION[0],
     openGraph: {
-      title: project[0],
+      title: `${project[0]} | Ritik Negi`,
       description: project[1].DESCRIPTION[0],
-      images: [
-        {
-          url: project[1].IMAGE.src,
-          width: 1200,
-          height: 630,
-          alt: project[0],
-        },
-      ],
+      images: project[1].IMAGE
+        ? [
+            {
+              url: project[1].IMAGE.src,
+              width: 1200,
+              height: 630,
+              alt: project[0],
+            },
+          ]
+        : undefined,
     },
   };
 }
@@ -51,10 +53,11 @@ export default function ProjectLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="bg-background text-foreground mx-auto px-4 w-full lg:w-2/3 xl:w-1/2 pt-6 sm:pt-12">
+    <div className="bg-background text-foreground">
       <Navbar />
-
-      <main className="min-h-fit px-4">{children}</main>
+      <main className="mx-auto w-full max-w-3xl px-6 pb-4 sm:px-10">
+        {children}
+      </main>
     </div>
   );
 }

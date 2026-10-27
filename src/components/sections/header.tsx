@@ -1,61 +1,92 @@
-import { Github, Linkedin, Mail } from "lucide-react";
-import { MovingElement } from "../navbar";
+import { DATA } from "@/app/data";
+import { cn } from "@/lib/utils";
+import { MaskReveal } from "../ui/mask-reveal";
+import { Reveal } from "../ui/reveal";
 
-export function Header({ data }: { data: Record<string, string> }) {
-  const handleChange = (url: string) => {
-    window.open(url, "_blank");
-  };
+const LINKS = [
+  { label: "Résumé", href: DATA.HEADER.RESUME, download: true },
+  { label: "Email", href: `mailto:${DATA.HEADER.EMAIL}` },
+  { label: "GitHub", href: DATA.HEADER.GITHUB, external: true },
+  { label: "LinkedIn", href: DATA.HEADER.LINKEDIN, external: true },
+];
+
+export function Header() {
+  const data = DATA.HEADER;
 
   return (
-    <section className="pt-12">
-      <div className="space-y-2">
-        <p className="text-base font-normal text-muted-foreground">
-          hi there👋, I&apos;m
+    <section className="pb-16 pt-20 sm:pb-24 sm:pt-28">
+      <Reveal>
+        <p className="label flex flex-wrap items-center gap-x-2 gap-y-1">
+          <span>{data.LOCATION}</span>
+          <span aria-hidden className="text-muted-foreground/40">
+            —
+          </span>
+          <span>{data.AVAILABILITY}</span>
+        </p>
+      </Reveal>
+
+      <h1 className="display mt-7 text-[clamp(3.25rem,10vw,7.5rem)] text-foreground">
+        <MaskReveal>
+          Ritik <span className="italic">Negi</span>
+        </MaskReveal>
+      </h1>
+
+      <Reveal delay={0.08}>
+        <p className="mt-7 text-base text-foreground/80">{data.ROLE}</p>
+
+        <p className="mt-4 max-w-xl text-pretty text-[17px] leading-relaxed text-muted-foreground sm:text-[18px]">
+          {data.SUMMARY}
         </p>
 
-        <div>
-          <h1 className="text-4xl font-bold tracking-tight text-primary/90">
-            {data.NAME}
-          </h1>
-          <h2 className="flex flex-col gap-0 text-base font-normal text-primary/90">
-            <p>
-              {data.AGE}, {data.PRONOUN}
-            </p>
-            <p>{data.HEADLINE}</p>
-          </h2>
-        </div>
+        <ul className="mt-8 flex flex-wrap items-center gap-x-7 gap-y-3 text-base">
+          {LINKS.map((link) => (
+            <li key={link.label}>
+              <a
+                href={link.href}
+                {...(link.download
+                  ? { download: "Ritik-Negi-Resume.pdf" }
+                  : {})}
+                {...(link.external
+                  ? { target: "_blank", rel: "noopener noreferrer" }
+                  : {})}
+                className="link text-foreground/90 transition-colors duration-500 hover:text-foreground"
+              >
+                {link.label}
+                {link.external && (
+                  <span
+                    aria-hidden
+                    className="ml-1 text-muted-foreground/60"
+                  >
+                    ↗
+                  </span>
+                )}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </Reveal>
 
-        <div className="flex items-center gap-2 text-sm">
-          <MovingElement
-            className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground shadow betterhover:hover:bg-primary/90 h-9 px-4 py-2"
-            change={() => handleChange(data.RESUME)}
-            toChange={false}
-            ariaLabel="Resume"
-          >
-            Resume
-          </MovingElement>
-          <div className="flex gap-2">
-            <MovingElement
-              change={() => handleChange(data.EMAIL)}
-              ariaLabel="Email"
+      <Reveal delay={0.16}>
+        <dl className="mt-16 grid grid-cols-2 border-t border-border sm:mt-20 sm:grid-cols-4">
+          {DATA.STATS.map((stat, index) => (
+            <div
+              key={stat.LABEL}
+              className={cn(
+                "flex flex-col-reverse gap-1 py-6 sm:py-8",
+                index >= 2 && "border-t border-border sm:border-t-0",
+                index > 0 && "sm:border-l sm:border-border sm:pl-8"
+              )}
             >
-              <Mail />
-            </MovingElement>
-            <MovingElement
-              change={() => handleChange(data.GITHUB)}
-              ariaLabel="Github"
-            >
-              <Github />
-            </MovingElement>
-            <MovingElement
-              change={() => handleChange(data.LINKEDIN)}
-              ariaLabel="Linkedin"
-            >
-              <Linkedin />
-            </MovingElement>
-          </div>
-        </div>
-      </div>
+              <dt className="text-sm leading-snug text-muted-foreground">
+                {stat.LABEL}
+              </dt>
+              <dd className="font-serif text-3xl text-foreground sm:text-4xl">
+                {stat.VALUE}
+              </dd>
+            </div>
+          ))}
+        </dl>
+      </Reveal>
     </section>
   );
 }
