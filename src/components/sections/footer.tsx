@@ -1,22 +1,19 @@
-import { ArrowUp } from "lucide-react";
+import { DATA } from "@/app/data";
 
 export function Footer() {
-  function scrollToTop() {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  }
-
   return (
-    <button
-      className="mx-auto flex w-fit cursor-pointer flex-col items-center gap-0 py-10 text-muted-foreground"
-      onClick={scrollToTop}
-    >
-      <p className="flex items-center gap-1">
-        Elevate to the top
-        <ArrowUp size={20} />
-      </p>
-    </button>
+    <footer className="border-t border-border">
+      <div className="mx-auto flex w-full max-w-6xl flex-col gap-2 px-6 py-8 sm:flex-row sm:items-center sm:justify-between sm:px-10">
+        <p className="text-sm text-muted-foreground">
+          © {new Date().getFullYear()} {DATA.HEADER.NAME}
+        </p>
+        <a
+          href="#top"
+          className="link text-sm text-muted-foreground transition-colors duration-500 hover:text-foreground"
+        >
+          Back to top
+        </a>
+      </div>
+    </footer>
   );
 }

@@ -1,12 +1,11 @@
 import { DATA } from "@/app/data";
+import { SITE_URL } from "@/lib/site";
 import { MetadataRoute } from "next";
-
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticRoute: MetadataRoute.Sitemap = [
     {
-      url: `${baseUrl}/`,
+      url: `${SITE_URL}/`,
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 1.0,
@@ -15,9 +14,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const projectRoutes: MetadataRoute.Sitemap = Object.values(DATA.PROJECTS).map(
     (project) => ({
-      url: `${baseUrl}/projects/${project.SLUG}`,
+      url: `${SITE_URL}/projects/${project.SLUG}`,
       lastModified: new Date(),
-      changeFrequency: "weekly",
+      changeFrequency: "monthly",
       priority: 0.8,
     })
   );

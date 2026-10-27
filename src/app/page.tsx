@@ -1,8 +1,8 @@
-"use client";
-
-import { DATA } from "@/app/data";
+import { DATA, IProjectData } from "@/app/data";
 import {
   AboutMe,
+  Contact,
+  Education,
   Experience,
   Footer,
   Header,
@@ -11,27 +11,46 @@ import {
   Skills,
 } from "@/components/sections";
 
+const projects = Object.entries(DATA.PROJECTS) as [string, IProjectData][];
+
+const workProjects = Object.fromEntries(
+  projects.filter(([, project]) => project.CATEGORY === "work")
+);
+
+const personalProjects = Object.fromEntries(
+  projects.filter(([, project]) => project.CATEGORY === "personal")
+);
+
 export default function Page() {
   return (
-    <div className="bg-background text-foreground mx-auto px-4 w-full lg:w-2/3 xl:w-1/2 pt-6 sm:pt-12">
+    <div id="top" className="bg-background text-foreground">
       <Navbar />
 
-      <main className="min-h-lvh px-4">
-        <Header data={DATA.HEADER} />
-        <AboutMe data={DATA.ABOUT_ME} />
+      <main className="mx-auto w-full max-w-6xl px-6 pb-4 sm:px-10">
+        <Header />
+        <AboutMe />
         <Experience data={DATA.EXPERIENCE} />
         <Projects
-          data={DATA.PROFFESIONALPROJECTS}
-          title="professional projects"
+          id="work"
+          eyebrow="selected work"
+          title="Production applications, with the numbers attached."
+          description="Client and product work — user scale, payments and performance."
+          data={workProjects}
         />
         <Projects
-          data={DATA.PROJECTS}
+          id="projects"
+          eyebrow="side projects"
+          title="Smaller builds, built for the fun of it."
+          description="Experiments with interfaces, tooling and ideas."
+          data={personalProjects}
           all={DATA.ALL_PROJECTS}
-          title="personal projects"
         />
         <Skills data={DATA.SKILLS} />
-        <Footer />
+        <Education />
+        <Contact />
       </main>
+
+      <Footer />
     </div>
   );
 }

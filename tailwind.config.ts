@@ -32,10 +32,11 @@ export default {
   				DEFAULT: 'hsl(var(--muted))',
   				foreground: 'hsl(var(--muted-foreground))'
   			},
-  			accent: {
-  				DEFAULT: 'hsl(var(--accent))',
-  				foreground: 'hsl(var(--accent-foreground))'
-  			},
+			accent: {
+				DEFAULT: 'hsl(var(--accent))',
+				foreground: 'hsl(var(--accent-foreground))',
+				soft: 'hsl(var(--accent-soft))'
+			},
   			destructive: {
   				DEFAULT: 'hsl(var(--destructive))',
   				foreground: 'hsl(var(--destructive-foreground))'
@@ -51,13 +52,18 @@ export default {
   				'5': 'hsl(var(--chart-5))'
   			}
   		},
-  		borderRadius: {
+  		transitionTimingFunction: {
+			sleek: "cubic-bezier(0.16, 1, 0.3, 1)"
+		},
+		borderRadius: {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
   		},
 		fontFamily: {
-			outfit: ["var(--font-outfit)"],
+			sans: ["var(--font-sans)", "system-ui", "sans-serif"],
+			serif: ["var(--font-serif)", "Georgia", "serif"],
+			mono: ["ui-monospace", "monospace"],
 		}
   	}
   },

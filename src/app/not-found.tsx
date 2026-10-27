@@ -1,31 +1,21 @@
-"use client";
-
-import { MovingElement } from "@/components/navbar";
-import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 
 export default function NotFound() {
-  const router = useRouter();
-
   return (
-    <div className="flex flex-col items-center justify-center h-screen">
-      <h1 className="text-6xl font-bold">404</h1>
-      <p className="text-xl mt-4">Page Not Found</p>
-
-      <MovingElement
-        change={() => router.push("/")}
-        ariaLabel="Navigate to home"
-        className="mt-8"
+    <div className="flex min-h-screen flex-col justify-center px-6 sm:px-10">
+      <p className="label">404</p>
+      <h1 className="display mt-4 max-w-lg text-[clamp(2.25rem,7vw,4.5rem)] text-foreground">
+        This page doesn&apos;t exist.
+      </h1>
+      <p className="mt-4 max-w-sm text-base leading-[1.7] text-muted-foreground">
+        The link may be outdated. Head back to the portfolio to see the work.
+      </p>
+      <Link
+        href="/"
+        className="link mt-8 w-fit text-base text-foreground"
       >
-        <Link
-          href={"/"}
-          className="tracking-tighter font-bold text-xl flex items-center gap-2"
-        >
-          <ArrowLeft />
-          Go back to home
-        </Link>
-      </MovingElement>
+        Back to portfolio →
+      </Link>
     </div>
   );
 }

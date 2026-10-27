@@ -1,5 +1,5 @@
-import { extractDomain } from "@/lib/utils";
 import { ArrowUpRight } from "lucide-react";
+import { Reveal } from "../ui/reveal";
 
 interface IExperienceData {
   WEBSITE: string;
@@ -16,60 +16,65 @@ export function Experience({
   data: Record<string, IExperienceData>;
 }) {
   return (
-    <div id="experience" className="py-10">
-      <h2 className="text-base font-medium text-primary/90">experience.</h2>
+    <section id="experience" className="border-t border-border py-16 sm:py-24">
+      <div className="grid gap-8 sm:grid-cols-[180px_1fr] sm:gap-12">
+        <h2 className="section-label sm:sticky sm:top-24 sm:self-start">
+          experience
+        </h2>
 
-      <ul className="mt-4 flex flex-col gap-12 text-base font-normal text-primary/90">
-        {Object.entries(data).map(([key, value]) => (
-          <li key={key}>
-            <div className="size-full border-l border-muted-foreground pl-4 transition-all duration-300 hover:border-primary">
-              <div className="flex flex-col items-start justify-between sm:flex-row">
-                <div>
-                  <p className="text-lg text-primary/90">
-                    {value.POSITION}{" "}
-                    <span className="ml-2 rounded bg-secondary px-2 py-1 text-xs inline-block max-sm:mb-2">
-                      {value.LOCATION}
-                    </span>
-                  </p>
-                  <p className="flex items-center text-sm">
-                    at,{" "}
-                    <a
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="ml-1 flex items-center gap-1"
-                      href={value.WEBSITE}
-                    >
-                      {extractDomain(value.WEBSITE)} <ArrowUpRight size={18} />
-                    </a>
-                  </p>
+        <div>
+          {Object.entries(data).map(([company, value], index) => (
+            <Reveal key={company} delay={index * 0.06}>
+              <article
+                className={index > 0 ? "border-t border-border pt-10" : ""}
+              >
+                <div className="flex flex-wrap items-baseline justify-between gap-x-8 gap-y-2">
+                  <h3 className="font-serif text-2xl text-foreground sm:text-[28px]">
+                    {value.POSITION}
+                  </h3>
+                  <p className="label">{value.DURATION}</p>
                 </div>
-                <p className="text-sm text-muted-foreground">
-                  {value.DURATION}
-                </p>
-              </div>
 
-              <ul className="mt-4 list-disc space-y-1 pl-3 text-sm text-muted-foreground text-justify">
-                {value.DESCRIPTION.map((desc, index) => (
-                  <li key={index}>
-                    <span>{desc}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <ul className="mt-2 flex flex-wrap items-center gap-2 pl-3">
-                {value.TECH_STACK.map((tech, index) => (
-                  <li
-                    key={index}
-                    className="rounded bg-muted px-2 py-1 text-xs"
+                <p className="mt-2 text-base text-muted-foreground">
+                  <a
+                    href={value.WEBSITE}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="link text-foreground"
                   >
-                    {tech}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </li>
-        ))}
-      </ul>
-    </div>
+                    {company}
+                    <ArrowUpRight
+                      className="ml-0.5 inline size-3"
+                      strokeWidth={1.5}
+                    />
+                  </a>
+                  <span className="mx-2 text-border">/</span>
+                  {value.LOCATION}
+                </p>
+
+                <ul className="mt-6 max-w-2xl space-y-3">
+                  {value.DESCRIPTION.map((desc, i) => (
+                    <li
+                      key={i}
+                      className="flex gap-3 text-base leading-[1.7] text-muted-foreground"
+                    >
+                      <span
+                        aria-hidden
+                        className="mt-[9px] size-[3px] shrink-0 rounded-full bg-muted-foreground/60"
+                      />
+                      <span>{desc}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <p className="mt-6 text-sm leading-relaxed text-muted-foreground/70">
+                  {value.TECH_STACK.join(" · ")}
+                </p>
+              </article>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }
