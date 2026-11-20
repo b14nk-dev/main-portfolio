@@ -1,0 +1,32 @@
+export const SKILLS = {
+  Languages: ["TypeScript", "JavaScript", "SQL", "HTML", "CSS"],
+  Frontend: [
+    "React.js",
+    "Next.js",
+    "React Native",
+    "Redux Toolkit",
+    "TanStack Query",
+    "Tailwind CSS",
+    "Framer Motion",
+  ],
+  "Backend & APIs": [
+    "Node.js",
+    "Express.js",
+    "REST APIs",
+    "JWT",
+    "RBAC",
+    "Sequelize",
+    "Webhooks",
+  ],
+  Databases: ["PostgreSQL", "MySQL", "MongoDB"],
+  "Cloud & Tooling": [
+    "Docker",
+    "AWS",
+    "Git",
+    "GitHub",
+    "Vercel",
+    "Postman",
+    "CI/CD",
+    "Chrome Extensions",
+  ],
+};

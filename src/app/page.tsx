@@ -1,11 +1,11 @@
 import { DATA, IProjectData } from "@/app/data";
 import {
   AboutMe,
+  AskHero,
   Contact,
   Education,
   Experience,
   Footer,
-  Header,
   Navbar,
   Projects,
   Skills,
@@ -27,9 +27,7 @@ export default function Page() {
       <Navbar />
 
       <main className="mx-auto w-full max-w-6xl px-6 pb-4 sm:px-10">
-        <Header />
-        <AboutMe />
-        <Experience data={DATA.EXPERIENCE} />
+        <AskHero />
         <Projects
           id="work"
           eyebrow="selected work"
@@ -37,6 +35,7 @@ export default function Page() {
           description="Client and product work — user scale, payments and performance."
           data={workProjects}
         />
+        <Experience data={DATA.EXPERIENCE} />
         <Projects
           id="projects"
           eyebrow="side projects"
@@ -46,6 +45,7 @@ export default function Page() {
           all={DATA.ALL_PROJECTS}
         />
         <Skills data={DATA.SKILLS} />
+        <AboutMe />
         <Education />
         <Contact />
       </main>

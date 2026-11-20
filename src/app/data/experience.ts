@@ -1,0 +1,30 @@
+export const EXPERIENCE = {
+  Callsmaster: {
+    WEBSITE: "https://www.callsmaster.com/",
+    POSITION: "Full-Stack Developer",
+    LOCATION: "New Delhi, India",
+    DURATION: "Jun 2023 – Present",
+    DESCRIPTION: [
+      "Owned end-to-end development of production web and mobile applications across frontend, backend, databases, authentication, payments and deployment.",
+      "Built backend services and REST APIs with Node.js and Express on PostgreSQL, MySQL and MongoDB, using modular application architecture.",
+      "Reduced dashboard and page-load latency by 30–40% through SSR, query optimization, indexing, lazy loading, code splitting and caching.",
+      "Integrated PayU, Razorpay and 5+ third-party services into transaction workflows, including webhook processing and API orchestration supporting ~1,500 monthly transactions.",
+      "Implemented JWT authentication and role-based access control across 10+ modules with reusable middleware and authorization flows.",
+      "Built Chrome Extensions serving 15,000+ monthly users, improving runtime performance, memory efficiency and browser compatibility.",
+      "Delivered features across React, Next.js, Node.js and React Native in Agile cycles, working directly with product and engineering requirements.",
+    ],
+    TECH_STACK: [
+      "TypeScript",
+      "React.js",
+      "Next.js",
+      "React Native",
+      "Node.js",
+      "Express.js",
+      "PostgreSQL",
+      "MongoDB",
+      "Razorpay",
+      "AWS",
+      "Vercel",
+    ],
+  },
+};

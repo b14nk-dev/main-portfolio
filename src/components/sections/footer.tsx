@@ -7,12 +7,20 @@ export function Footer() {
         <p className="text-sm text-muted-foreground">
           © {new Date().getFullYear()} {DATA.HEADER.NAME}
         </p>
-        <a
-          href="#top"
-          className="link text-sm text-muted-foreground transition-colors duration-500 hover:text-foreground"
-        >
-          Back to top
-        </a>
+        <div className="flex items-center gap-6">
+          <a
+            href="#ask"
+            className="link text-sm text-muted-foreground transition-colors duration-500 hover:text-foreground"
+          >
+            Ask a question
+          </a>
+          <a
+            href="#top"
+            className="link text-sm text-muted-foreground transition-colors duration-500 hover:text-foreground"
+          >
+            Back to top
+          </a>
+        </div>
       </div>
     </footer>
   );
