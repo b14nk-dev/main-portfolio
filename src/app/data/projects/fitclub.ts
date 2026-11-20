@@ -3,7 +3,7 @@ import type { IProjectData } from "../types";
 
 export const fitclub: IProjectData = {
   SLUG: "fitclub-gym-crm",
-  LIVE_PREVIEW: "https://fitclub.coupontodeal.com",
+  LIVE_PREVIEW: "https://fitclub.co.in/login",
   DATE: "Jul 2024 – Feb 2026",
   CATEGORY: "work",
   DESCRIPTION: [

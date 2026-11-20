@@ -1,7 +1,9 @@
+import Thai_tourism_Image from "@/assets/thai-tourism.png";
 import type { IProjectData } from "../types";
 
 export const thaiTourism: IProjectData = {
   SLUG: "thai-tourism-platform",
+  LIVE_PREVIEW: "https://thethaitourism.com/",
   DATE: "2025",
   CATEGORY: "work",
   DESCRIPTION: [
@@ -20,4 +22,5 @@ export const thaiTourism: IProjectData = {
     "PostgreSQL",
     "TanStack Query",
   ],
+  IMAGE: Thai_tourism_Image,
 };

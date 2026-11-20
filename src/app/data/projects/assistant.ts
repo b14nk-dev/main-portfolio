@@ -1,3 +1,4 @@
+import Assistant_Image from "@/assets/portfolio-ai-assistant.png";
 import type { IProjectData } from "../types";
 
 export const assistant: IProjectData = {
@@ -23,4 +24,5 @@ export const assistant: IProjectData = {
     "NDJSON",
   ],
   NOTE: "Answers stay scoped to the knowledge base; out-of-scope questions fall back to email.",
+  IMAGE: Assistant_Image,
 };

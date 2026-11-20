@@ -5,7 +5,7 @@ export const asciiArt: IProjectData = {
   SLUG: "ascii-art",
   DATE: "2025",
   CATEGORY: "personal",
-  LIVE_PREVIEW: "https://ascii-art-generator-nextjs.vercel.app/",
+  LIVE_PREVIEW: "https://ascii-art-sigma.vercel.app/",
   GITHUB: "https://github.com/b14nk-dev/ascii-art",
   DESCRIPTION: [
     "Converts uploaded images into ASCII art with adjustable settings and live preview.",
